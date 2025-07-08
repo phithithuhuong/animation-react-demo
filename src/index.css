@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +11,43 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Custom component classes */
+.btn {
+  @apply inline-block px-6 py-3 text-base font-semibold transition-all duration-300 cursor-pointer border-none rounded-lg text-center;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-primary-500 to-secondary-500 text-white;
+}
+
+.btn-primary:hover {
+  @apply transform -translate-y-0.5 shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-transparent text-primary-500 border-2 border-primary-500;
+}
+
+.btn-secondary:hover {
+  @apply bg-primary-500 text-white transform -translate-y-0.5;
+}
+
+.container {
+  @apply max-w-6xl mx-auto px-5;
+}
+
+.page-header {
+  @apply py-16 text-center;
+}
+
+.page-title {
+  @apply text-5xl font-bold mb-4 text-gray-800;
+}
+
+.page-description {
+  @apply text-xl text-gray-600 max-w-2xl mx-auto;
 }

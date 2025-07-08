@@ -1,25 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navigation from './components/common/Navigation';
+import { 
+  HomePage, 
+  CarouselPage, 
+  AnimationsPage, 
+  GalleryPage, 
+  AboutPage, 
+  ContactPage,
+  SchedulePage 
+} from './pages';
+import { ROUTES } from './constants/routes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="min-h-screen flex flex-col bg-white text-gray-800">
+        <Navigation />
+        <main className="flex-1 min-h-[calc(100vh-70px)]">
+          <Routes>
+            <Route path={ROUTES.HOME} element={<HomePage />} />
+            <Route path={ROUTES.CAROUSEL} element={<CarouselPage />} />
+            <Route path={ROUTES.ANIMATIONS} element={<AnimationsPage />} />
+            <Route path={ROUTES.GALLERY} element={<GalleryPage />} />
+            <Route path={ROUTES.SCHEDULE} element={<SchedulePage />} />
+            <Route path={ROUTES.ABOUT} element={<AboutPage />} />
+            <Route path={ROUTES.CONTACT} element={<ContactPage />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
