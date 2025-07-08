@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from '../components/ui/Carousel';
 import { CarouselItem } from '../types';
+import HorizontalScroll from '../components/ui/HorizontalScroll';
 
 const CarouselPage: React.FC = () => {
   const carouselItems: CarouselItem[] = [
@@ -63,6 +64,7 @@ const CarouselPage: React.FC = () => {
               showArrows={true}
             />
           </div>
+          <HorizontalScroll items={carouselItems} />
           
           <div className="bg-white p-10 rounded-2xl shadow-lg max-w-2xl mx-auto">
             <h2 className="text-3xl font-semibold mb-8 text-center text-gray-800">Features</h2>

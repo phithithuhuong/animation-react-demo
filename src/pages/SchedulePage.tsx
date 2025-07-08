@@ -9,7 +9,29 @@ const SchedulePage: React.FC = () => {
 
   // Days of the week
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  const dayNumbers = ['01', '02', '03', '04', '05', '06', '07'];
+  
+  // Calculate current week dates (Monday to Sunday)
+  const getCurrentWeekDates = () => {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+    const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek; // Adjust for Sunday = 0
+    
+    const monday = new Date(today);
+    monday.setDate(today.getDate() + mondayOffset);
+    
+    const weekDates = [];
+    for (let i = 0; i < 7; i++) {
+      const date = new Date(monday);
+      date.setDate(monday.getDate() + i);
+      weekDates.push(date);
+    }
+    
+    return weekDates;
+  };
+
+  const weekDates = getCurrentWeekDates();
+  const dayNumbers = weekDates.map(date => date.getDate().toString().padStart(2, '0'));
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   // Time slots (based on the image)
   const timeSlots: TimeSlot[] = [
@@ -97,7 +119,10 @@ const SchedulePage: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">Schedule</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Schedule</h1>
+          <div className="text-lg text-gray-600 mb-4">
+            Week of {monthNames[weekDates[0].getMonth()]} {weekDates[0].getDate()} - {monthNames[weekDates[6].getMonth()]} {weekDates[6].getDate()}, {weekDates[0].getFullYear()}
+          </div>
           
           {/* Controls */}
           <div className="flex flex-wrap items-center gap-4 mb-6">
@@ -139,12 +164,25 @@ const SchedulePage: React.FC = () => {
               <div className="text-sm font-medium text-gray-600">Day</div>
               <div className="text-xs text-gray-500 mt-1">時間</div>
             </div>
-            {days.map((day, index) => (
-              <div key={day} className="p-4 bg-gray-50 border-r border-gray-200 last:border-r-0 text-center">
-                <div className="font-medium text-gray-900">{day}</div>
-                <div className="text-2xl font-bold text-gray-900 mt-1">{dayNumbers[index]}</div>
-              </div>
-            ))}
+            {days.map((day, index) => {
+              const isToday = weekDates[index].toDateString() === new Date().toDateString();
+              return (
+                <div key={day} className={`p-4 border-r border-gray-200 last:border-r-0 text-center ${
+                  isToday ? 'bg-blue-100 border-blue-200' : 'bg-gray-50'
+                }`}>
+                  <div className={`font-medium ${isToday ? 'text-blue-900' : 'text-gray-900'}`}>{day}</div>
+                  <div className={`text-2xl font-bold mt-1 ${isToday ? 'text-blue-900' : 'text-gray-900'}`}>
+                    {dayNumbers[index]}
+                  </div>
+                  <div className={`text-xs ${isToday ? 'text-blue-700' : 'text-gray-500'}`}>
+                    {monthNames[weekDates[index].getMonth()]}
+                  </div>
+                  {isToday && (
+                    <div className="text-xs font-medium text-blue-600 mt-1">Today</div>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           {/* Time Slots */}

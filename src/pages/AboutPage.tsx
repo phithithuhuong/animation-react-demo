@@ -1,6 +1,23 @@
 import React from 'react';
 
 const AboutPage: React.FC = () => {
+  const technologies = [
+    'React 19 with TypeScript',
+    'React Router for navigation',
+    'Tailwind CSS for styling',
+    'Responsive design principles',
+    'Modern ES6+ JavaScript'
+  ];
+
+  const features = [
+    'Professional folder structure',
+    'Type-safe TypeScript components',
+    'Responsive carousel component',
+    'Tailwind CSS styling',
+    'Image gallery with hover effects',
+    'Clean, maintainable code'
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-gradient-to-br from-primary-500 to-secondary-500 text-white py-16 text-center">
@@ -15,56 +32,39 @@ const AboutPage: React.FC = () => {
       <div className="py-20">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 border border-gray-50 hover:transform hover:-translate-y-2 hover:shadow-2xl opacity-0 animate-fade-in animation-delay-100">
+            <div className="bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 border border-gray-50 hover:transform hover:-translate-y-2 hover:shadow-2xl opacity-100 animate-fade-in animation-delay-100">
               <h2 className="text-3xl font-semibold mb-6 text-gray-800 flex items-center gap-2">
                 🚀 Technologies Used
               </h2>
               <ul className="list-none p-0 m-0">
-                <li className="py-3 text-gray-700 text-lg border-b border-gray-100 transition-all duration-300 relative pl-5 hover:text-primary-500 hover:pl-6 before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold">
-                  React 19 with TypeScript
-                </li>
-                <li className="py-3 text-gray-700 text-lg border-b border-gray-100 transition-all duration-300 relative pl-5 hover:text-primary-500 hover:pl-6 before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold">
-                  React Router for navigation
-                </li>
-                <li className="py-3 text-gray-700 text-lg border-b border-gray-100 transition-all duration-300 relative pl-5 hover:text-primary-500 hover:pl-6 before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold">
-                  Tailwind CSS for styling
-                </li>
-                <li className="py-3 text-gray-700 text-lg border-b border-gray-100 transition-all duration-300 relative pl-5 hover:text-primary-500 hover:pl-6 before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold">
-                  Responsive design principles
-                </li>
-                <li className="py-3 text-gray-700 text-lg transition-all duration-300 relative pl-5 hover:text-primary-500 hover:pl-6 before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold">
-                  Modern ES6+ JavaScript
-                </li>
+                {technologies.map((tech, index) => (
+                  <li 
+                    key={index}
+                    className="py-3 text-gray-700 text-lg border-b border-gray-100 transition-all duration-300 hover:pl-6 relative pl-5 hover:text-primary-500  before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold"
+                  >
+                    {tech}
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 border border-gray-50 hover:transform hover:-translate-y-2 hover:shadow-2xl opacity-0 animate-fade-in animation-delay-200">
+            <div className="bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 border border-gray-50 hover:transform hover:-translate-y-2 hover:shadow-2xl opacity-100 animate-fade-in animation-delay-200">
               <h2 className="text-3xl font-semibold mb-6 text-gray-800 flex items-center gap-2">
                 ✨ Features
               </h2>
               <ul className="list-none p-0 m-0">
-                <li className="py-3 text-gray-700 text-lg border-b border-gray-100 transition-all duration-300 relative pl-5 hover:text-primary-500 hover:pl-6 before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold">
-                  Professional folder structure
-                </li>
-                <li className="py-3 text-gray-700 text-lg border-b border-gray-100 transition-all duration-300 relative pl-5 hover:text-primary-500 hover:pl-6 before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold">
-                  Type-safe TypeScript components
-                </li>
-                <li className="py-3 text-gray-700 text-lg border-b border-gray-100 transition-all duration-300 relative pl-5 hover:text-primary-500 hover:pl-6 before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold">
-                  Responsive carousel component
-                </li>
-                <li className="py-3 text-gray-700 text-lg border-b border-gray-100 transition-all duration-300 relative pl-5 hover:text-primary-500 hover:pl-6 before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold">
-                  Tailwind CSS styling
-                </li>
-                <li className="py-3 text-gray-700 text-lg border-b border-gray-100 transition-all duration-300 relative pl-5 hover:text-primary-500 hover:pl-6 before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold">
-                  Image gallery with hover effects
-                </li>
-                <li className="py-3 text-gray-700 text-lg transition-all duration-300 relative pl-5 hover:text-primary-500 hover:pl-6 before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold">
-                  Clean, maintainable code
-                </li>
+                {features.map((feature, index) => (
+                  <li 
+                    key={index}
+                    className="py-3 text-gray-700 text-lg border-b border-gray-100 transition-all duration-300 relative pl-5 hover:text-primary-500 hover:pl-6 before:content-['✓'] before:absolute before:left-0 before:text-primary-500 before:font-bold"
+                  >
+                    {feature}
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div className="md:col-span-2 bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 border border-gray-50 hover:transform hover:-translate-y-2 hover:shadow-2xl opacity-0 animate-fade-in animation-delay-300">
+            <div className="md:col-span-2 bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 border border-gray-50 hover:transform hover:-translate-y-2 hover:shadow-2xl opacity-100 animate-fade-in animation-delay-300">
               <h2 className="text-3xl font-semibold mb-6 text-gray-800 flex items-center gap-2">
                 📁 Project Structure
               </h2>
