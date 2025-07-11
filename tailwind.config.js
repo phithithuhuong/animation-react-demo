@@ -61,6 +61,26 @@ module.exports = {
       },
     },
   },
-  plugins: [],
-  
+  plugins: [
+    function({ addUtilities }) {
+      const animationDelayUtilities = {
+        '.animation-delay-100': {
+          'animation-delay': '100ms',
+        },
+        '.animation-delay-200': {
+          'animation-delay': '200ms',
+        },
+        '.animation-delay-300': {
+          'animation-delay': '300ms',
+        },
+        '.animation-delay-400': {
+          'animation-delay': '400ms',
+        },
+        '.animation-delay-500': {
+          'animation-delay': '500ms',
+        },
+      }
+      addUtilities(animationDelayUtilities)
+    }
+  ],
 } 

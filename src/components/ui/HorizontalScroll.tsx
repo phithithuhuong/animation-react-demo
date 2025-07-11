@@ -49,9 +49,6 @@ const HorizontalScroll: React.FC<HorizontalScrollProps> = ({ items }) => {
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
               Horizontal Scroll Gallery
             </h2>
-            <p className="text-lg text-gray-600">
-                Horizontal Scroll Gallery
-            </p>
           </div>
           
           <div className="relative overflow-hidden">

@@ -6,6 +6,7 @@ import {
   CarouselPage, 
   AnimationsPage, 
   GalleryPage, 
+  TrelloPage,
   AboutPage, 
   ContactPage,
   SchedulePage 
@@ -23,6 +24,7 @@ function App() {
             <Route path={ROUTES.CAROUSEL} element={<CarouselPage />} />
             <Route path={ROUTES.ANIMATIONS} element={<AnimationsPage />} />
             <Route path={ROUTES.GALLERY} element={<GalleryPage />} />
+            <Route path={ROUTES.TRELLO} element={<TrelloPage />} />
             <Route path={ROUTES.SCHEDULE} element={<SchedulePage />} />
             <Route path={ROUTES.ABOUT} element={<AboutPage />} />
             <Route path={ROUTES.CONTACT} element={<ContactPage />} />
